@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var verticalMax = parseFloat(document.getElementById("multiplicandMax").value);
         var horizontalMin = parseFloat(document.getElementById("multiplierMin").value);
         var horizontalMax = parseFloat(document.getElementById("multiplierMax").value);
+        var tableContainer = document.getElementById("tableContainer");
 
 
         if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
@@ -34,24 +35,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-        // Creating the multiplication table
-        var tableContainer = document.getElementById("tableContainer");
-        tableContainer.innerHTML = ""; // old table is removed when 'generate' button is clicked
+        // old table is removed when 'generate' button is clicked
+        tableContainer.innerHTML = ""; 
 
         var table = document.createElement("table");
 
-        // styling table
+        // Bootstrap class to add border lines to all cells so the table is legible and neater
         table.className = "table table-bordered";
     
 
 
-
-        //chgpts
-
         // Create the header row
         var headerRow = table.insertRow();
-        headerRow.insertCell().outerHTML = "<th></th>"; // Empty cell for top-left corner
+
+        // Using this top-left corner cell so everything else lines up.
+        headerRow.insertCell().outerHTML = "<th> Muliplication Table</th>"; 
+
         for (var j = horizontalMin; j <= horizontalMax; j++) {
             headerRow.insertCell().outerHTML = "<th>" + j + "</th>"; // Add multipliers to header
         }
