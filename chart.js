@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var tableContainer = document.getElementById("tableContainer");
 
 
+        // Check if any field is empty 
         if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
             alert("Please fill out all fields.");
             return;
@@ -48,19 +49,45 @@ document.addEventListener("DOMContentLoaded", function() {
         // Create the header row
         var headerRow = table.insertRow();
 
-        // Using this top-left corner cell so everything else lines up.
-        headerRow.insertCell().outerHTML = "<th> Muliplication Table</th>"; 
+        // Setting this top-left corner cell to empty so everything else lines up. 
+        headerRow.insertCell().outerHTML = "<th></th>"; 
 
+        /* This loop iterates through the range of multipliers specified by the user.
+           And inserts a new header cell for each multiplier, allowing the user to see what 
+           numbers will be multiplied across the top of the table.
+        */
         for (var j = horizontalMin; j <= horizontalMax; j++) {
-            headerRow.insertCell().outerHTML = "<th>" + j + "</th>"; // Add multipliers to header
+            headerRow.insertCell().outerHTML = "<th class='multiplier-header'>" + j + "</th>"; // Add multipliers to header
+            //headerRow.className = "header-color";
         }
 
-        // Generate table data
+
+
+        /* The outer loop iterates through the range of multiplicands specified by the user.
+            and creates a new row in the table for each multiplican and also inserts a header cell for the multiplicand
+        
+           The inner loop iterates through the range of multipliers for the current multiplicand 
+           and inserts the product of the current multiplicand and multiplier into the cell.
+
+        */ 
         for (var i = verticalMin; i <= verticalMax; i++) {
             var rowCreate = table.insertRow();
-            rowCreate.insertCell().outerHTML = "<th>" + i + "</th>"; // Add multiplicand in first cell
+
+            rowCreate.insertCell().outerHTML = "<th class='multiplicand-header'>" + i + "</th>"; // Add multiplicand in first cell
+
+
+
             for (var j = horizontalMin; j <= horizontalMax; j++) {
-                rowCreate.insertCell().innerText = i * j; // Calculate and insert product
+                var productCell = rowCreate.insertCell();
+                productCell.innerText = i * j; // Calculate and insert product
+
+                // alternate row color based on even and odd 'i' index
+                if(i % 2 == 0){
+                    productCell.className = "even-row"; // Apply color for even rows
+                }
+                else{
+                    productCell.className = "odd-row"; // Apply color for even rows
+                }
             }
         }
 

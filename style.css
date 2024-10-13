@@ -1,0 +1,25 @@
+/* alternating colors for even and odd */
+
+.even-row {
+    background-color: #ffffff; /* White for odd rows */
+    
+}
+
+.odd-row {
+    
+    background-color: #8499f6; /* Light blue for even rows */
+}
+
+/* Style for the multiplicands */
+.multiplicand-header {
+    color: white; 
+    font-weight: bold; 
+    background-color: #231b92; 
+}
+
+/* Style for the multipliers */
+.multiplier-header {
+    color: white; 
+    font-weight: bold; 
+    background-color: #231b92; 
+}
