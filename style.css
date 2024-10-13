@@ -19,6 +19,15 @@
     border: 1px solid #ccc; /* Adds a border for visibility */
 }
 
+ /* Style for error message */
+.error-message {
+    color: red;          
+    font-size: 0.9em;    
+    /* Keep it inline with the input */
+    display: inline-block; 
+}
+
+
 
 /* alternating colors for even and odd */
 .even-row {
