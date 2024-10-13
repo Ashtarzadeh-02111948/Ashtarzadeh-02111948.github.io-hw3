@@ -26,6 +26,12 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
     }
 
+        // Check if min values are less than or equal to max values
+        if (verticalMin > verticalMax || horizontalMin > horizontalMax) {
+            alert("Minimum values should be less than or equal to maximum values.");
+            return;
+        }
+
 
 
 
@@ -36,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var table = document.createElement("table");
         table.className = "table table-bordered";
 
-        // Create table header
+        // Creating table header
         var headerRow = table.insertRow();
         headerRow.insertCell().outerHTML = "<th>Multiplicand</th>";
         headerRow.insertCell().outerHTML = "<th>Multiplier</th>";
@@ -45,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Generate table data
         for (var col = verticalMin; col <= verticalMax; col++) {
             for (var row = horizontalMin; row <= horizontalMax; row++) {
-                var row = table.insertRow();
-                row.insertCell().innerText = i; // Multiplicand
-                row.insertCell().innerText = j; // Multiplier
-                row.insertCell().innerText = i * j; // Product
+                var rowCreate = table.insertRow();
+                rowCreate.insertCell().innerText = col; // Multiplicand
+                rowCreate.insertCell().innerText = row; // Multiplier
+                rowCreate.insertCell().innerText = col * row; // Product
             }
         }
 
