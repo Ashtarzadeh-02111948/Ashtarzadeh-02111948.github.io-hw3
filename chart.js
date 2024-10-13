@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function() {
         // Preventing form submission
         event.preventDefault()
 
+        // Clear any previous error messages
+        var errorMessages = document.getElementById("errorMessages");
+        errorMessages.innerHTML = "";  // Clear previous messages
+
         // getting ids from the form
         var verticalMin = parseFloat(document.getElementById("multiplicandMin").value);
         var verticalMax = parseFloat(document.getElementById("multiplicandMax").value);
@@ -16,25 +20,34 @@ document.addEventListener("DOMContentLoaded", function() {
         var tableContainer = document.getElementById("tableContainer");
 
         
+        // ********************************* Start of input validation ***********************************************
 
+            // using innerHtml to display error messages on page instead of popup. Source: https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 
-        // Check if any field is empty 
-        if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
-            alert("Please fill out all fields.");
-            return;
+            // Check if any field is empty 
+            if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
+                // non pop up window error messages
+                errorMessages.innerHTML = "Please fill out all fields.";
+                return;
+            }
+            // Check if values are within the range
+            else if (verticalMin < -50 || verticalMax < -50 || horizontalMin < -50 || horizontalMax < -50 ||
+                verticalMin > 50 || verticalMax > 50 || horizontalMin > 50 || horizontalMax > 50) {
+                // non pop up window error messages
+                errorMessages.innerHTML = "Please fill out all fields with valid inputs (Between -50 and 50).";
+
+                return;
         }
-        // Check if values are within the range
-        else if (verticalMin < -50 || verticalMax < -50 || horizontalMin < -50 || horizontalMax < -50 ||
-            verticalMin > 50 || verticalMax > 50 || horizontalMin > 50 || horizontalMax > 50) {
-            alert("Please fill out all fields with valid inputs (Between -50 and 50).");
-            return;
-    }
 
-        // Check if min values are less than or equal to max values
-        if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
-            alert("Minimum values should be less than or equal to maximum values.");
-            return;
-        }
+            // Check if min values are less than or equal to max values
+            if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
+                // non pop up window error messages
+                errorMessages.innerHTML = "Minimum values should be less than maximum values.";
+                return;
+            }
+
+        // ********************************** end of input validation **********************************************
+
 
 
         // old table is removed when 'generate' button is clicked
@@ -65,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
 
-
         /* The outer loop iterates through the range of multiplicands specified by the user.
             and creates a new row in the table for each multiplican and also inserts a header cell for the multiplicand
         
@@ -77,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
             var rowCreate = table.insertRow();
 
             rowCreate.insertCell().outerHTML = "<th class='multiplicand-header'>" + i + "</th>"; // Add multiplicand in first cell
-
-
 
             for (var j = horizontalMin; j <= horizontalMax; j++) {
                 var productCell = rowCreate.insertCell();
@@ -96,11 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         tableContainer.appendChild(table); // Append the table to the container in the html
 
+    }); // end of generateButton listener
 
-    });
-
-});
-
-
-
-
+}); // end of main event listener
