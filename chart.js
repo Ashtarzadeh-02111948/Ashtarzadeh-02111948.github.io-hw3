@@ -26,14 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Check if any field is empty 
             if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
-                // non pop up window error messages
+                
                 errorMessages.innerHTML = "Please fill out all fields.";
                 return;
             }
             // Check if values are within the range
             else if (verticalMin < -50 || verticalMax < -50 || horizontalMin < -50 || horizontalMax < -50 ||
                 verticalMin > 50 || verticalMax > 50 || horizontalMin > 50 || horizontalMax > 50) {
-                // non pop up window error messages
+                
                 errorMessages.innerHTML = "Please fill out all fields with valid inputs (Between -50 and 50).";
 
                 return;
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Check if min values are less than or equal to max values
             if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
-                // non pop up window error messages
+            
                 errorMessages.innerHTML = "Minimum values should be less than maximum values.";
                 return;
             }
