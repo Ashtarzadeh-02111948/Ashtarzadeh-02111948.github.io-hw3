@@ -22,32 +22,47 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // ********************************* Start of input validation ***********************************************
 
+            // Array to store all error messages
+            var messages = [];
+
             // using innerHtml to display error messages on page instead of popup. Source: https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
 
             // Check if any field is empty 
             if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
-                
-                errorMessages.innerHTML = "Please fill out all fields.";
-                return;
+                messages.push("Please fill out all fields.");
+            
             }
+
             // Check if values are within the range
             else if (verticalMin < -50 || verticalMax < -50 || horizontalMin < -50 || horizontalMax < -50 ||
                 verticalMin > 50 || verticalMax > 50 || horizontalMin > 50 || horizontalMax > 50) {
                 
-                errorMessages.innerHTML = "Please fill out all fields with valid inputs (Between -50 and 50).";
-
-                return;
+                messages.push("Please fill out all fields with valid inputs (Between -50 and 50).");
+                
         }
 
             // Check if min values are less than or equal to max values
             if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
-            
-                errorMessages.innerHTML = "Minimum values should be less than maximum values.";
-                return;
+
+                messages.push("Minimum values should be less than maximum values.");
+                
             }
+
+
 
         // ********************************** end of input validation **********************************************
 
+
+        // If there are any error messages, display them line by line and return
+        if (messages.length > 0) {
+
+            errorMessages.innerHTML = messages.join("<br>");  // Display all messages, separated by line breaks
+            errorMessages.style.display = "block"; // Show the error box
+            
+
+        } else {
+            errorMessages.style.display = "none"; // Hide the error box if no messages
+       
 
 
         // old table is removed when 'generate' button is clicked
@@ -105,6 +120,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         tableContainer.appendChild(table); // Append the table to the container in the html
+
+    }// end of else block for displaying error messages
 
     }); // end of generateButton listener
 

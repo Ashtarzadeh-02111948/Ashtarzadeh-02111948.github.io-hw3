@@ -20,12 +20,15 @@
 }
 
  /* Style for error message */
-.error-message {
-    color: red;          
-    font-size: 0.9em;    
-    /* Keep it inline with the input */
-    display: inline-block; 
+ #errorMessages {
+    display: none;
+    margin-top: 10px; /* Space above the error messages */
+    padding: 10px; /* Space inside the error messages box */
+    border: 1px solid red; /* Red border for emphasis */
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
 }
+
 
 
 
