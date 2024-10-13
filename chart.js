@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
         tableContainer.innerHTML = ""; // old table is removed when 'generate' button is clicked
 
         var table = document.createElement("table");
+        
+        // styling table
         table.className = "table table-bordered";
 
         // Creating table header
