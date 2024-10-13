@@ -1,3 +1,4 @@
+/*style for main title of page*/
 .page-title{
     background-color: #231b92; /* Background color for the title */
     color: white; /* Text color */
@@ -5,9 +6,17 @@
     font-size: 2em; /* Font size */
 
 }
+
+/*style for table cells */
 #multiplicationTable {
     width: 100%; /* Full width */
     table-layout: auto; /* Auto layout for responsiveness */
+}
+
+/* style for table and ensuring table is scrollable */
+#tableContainer {
+    overflow: auto;    /* Enables scrolling */
+    border: 1px solid #ccc; /* Adds a border for visibility */
 }
 
 
@@ -20,7 +29,7 @@
     background-color: #8499f6; /* Light blue for even rows */
 }
 
-/* Style for the multiplicands */
+/* style for the multiplicands */
 .multiplicand-header {
     color: white; 
     font-weight: bold; 
@@ -32,7 +41,7 @@
     z-index: 9; /* Ensures left header stays above other content */
 }
 
-/* Style for the multipliers */
+/* style for the multipliers */
 .multiplier-header {
     color: white; 
     font-weight: bold; 
