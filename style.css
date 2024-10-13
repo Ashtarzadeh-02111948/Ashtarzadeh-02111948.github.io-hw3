@@ -1,5 +1,17 @@
-/* alternating colors for even and odd */
+.page-title{
+    background-color: #231b92; /* Background color for the title */
+    color: white; /* Text color */
+    padding: 10px; /* Padding for spacing */
+    font-size: 2em; /* Font size */
 
+}
+#multiplicationTable {
+    width: 100%; /* Full width */
+    table-layout: auto; /* Auto layout for responsiveness */
+}
+
+
+/* alternating colors for even and odd */
 .even-row {
     background-color: #ffffff; /* White for odd rows */
 }

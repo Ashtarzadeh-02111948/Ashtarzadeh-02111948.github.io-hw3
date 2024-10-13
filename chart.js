@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
         var horizontalMax = parseFloat(document.getElementById("multiplierMax").value);
         var tableContainer = document.getElementById("tableContainer");
 
+        
+
 
         // Check if any field is empty 
         if (isNaN(verticalMin) || isNaN(verticalMax) || isNaN(horizontalMin) || isNaN(horizontalMax) ) {
@@ -29,11 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
         // Check if min values are less than or equal to max values
-        if (verticalMin > verticalMax || horizontalMin > horizontalMax) {
+        if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
             alert("Minimum values should be less than or equal to maximum values.");
             return;
         }
-
 
 
         // old table is removed when 'generate' button is clicked
@@ -43,9 +44,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Bootstrap class to add border lines to all cells so the table is legible and neater
         table.className = "table table-bordered";
+
+        // Set the ID for the table
+        table.id = "multiplicationTable"; 
+
     
-
-
         // Create the header row
         var headerRow = table.insertRow();
 
