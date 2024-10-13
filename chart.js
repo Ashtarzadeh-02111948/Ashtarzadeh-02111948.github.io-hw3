@@ -40,23 +40,28 @@ document.addEventListener("DOMContentLoaded", function() {
         tableContainer.innerHTML = ""; // old table is removed when 'generate' button is clicked
 
         var table = document.createElement("table");
-        
+
         // styling table
         table.className = "table table-bordered";
+    
 
-        // Creating table header
+
+
+        //chgpts
+
+        // Create the header row
         var headerRow = table.insertRow();
-        headerRow.insertCell().outerHTML = "<th>Multiplicand</th>";
-        headerRow.insertCell().outerHTML = "<th>Multiplier</th>";
-        headerRow.insertCell().outerHTML = "<th>Product</th>";
+        headerRow.insertCell().outerHTML = "<th></th>"; // Empty cell for top-left corner
+        for (var j = horizontalMin; j <= horizontalMax; j++) {
+            headerRow.insertCell().outerHTML = "<th>" + j + "</th>"; // Add multipliers to header
+        }
 
         // Generate table data
-        for (var col = verticalMin; col <= verticalMax; col++) {
-            for (var row = horizontalMin; row <= horizontalMax; row++) {
-                var rowCreate = table.insertRow();
-                rowCreate.insertCell().innerText = col; // Multiplicand
-                rowCreate.insertCell().innerText = row; // Multiplier
-                rowCreate.insertCell().innerText = col * row; // Product
+        for (var i = verticalMin; i <= verticalMax; i++) {
+            var rowCreate = table.insertRow();
+            rowCreate.insertCell().outerHTML = "<th>" + i + "</th>"; // Add multiplicand in first cell
+            for (var j = horizontalMin; j <= horizontalMax; j++) {
+                rowCreate.insertCell().innerText = i * j; // Calculate and insert product
             }
         }
 
