@@ -1,7 +1,16 @@
+<!--
+File: index.html
+Date Created: 10/12/24
+GUI Assignment: HW3 JS - generating dynamic multiplication table based on user input
+Nika Ashtarzadeh, Nika_Ashtarzadeh@student.uml.edu
+Copyright (c) 2021 by Nika. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Multiplication Table</title>
+    <title>Multiplication Table Online Generator</title>
     <meta charset="utf-8">
     <link href="style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +20,16 @@
 </head>
 
 <body>
-    <h1 style="text-align: center;">Multiplication Table</h1>
+    <h1 style="text-align: center; font-size: large;">Please Enter Table Ranges</h1>
     <br>
 
+    <p style="text-align: center;"> Valid values range from -50 to 50 </p>> 
 
+
+  <!-- Boostrap styled container -->
     <div class="container">
 
+      <!-- Boostrap style form to get user input -->
         <form id="tableInput">
 
         <div class="row">
@@ -69,47 +82,23 @@
 
         </div>
 
+          <!-- Boostrap styled submit button to take you to generatd table-->
+
         <div class="col-md-12 text-center mt-3">
-            <button class="btn btn-primary" type="submit">Generate Table</button>
+            <button class="btn btn-primary" id="generateButton" type="submit">Generate Table</button>
         </div>
 
     </form>
+
+
+    <!-- Space for JS to create table-->
+    <div id="tableContainer" class="mt-5"></div>
+
 </div> 
 
-
-
-
-
-
-    
     
 
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
+      <!-- linking java script to html -->
 
       <script src="chart.js"></script>
 
