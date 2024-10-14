@@ -43,11 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Check if min values are less than or equal to max values
             if (verticalMin >= verticalMax || horizontalMin >= horizontalMax) {
-
                 messages.push("Minimum values should be less than maximum values.");
-                
             }
-
 
 
         // ********************************** end of input validation **********************************************
@@ -55,13 +52,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // If there are any error messages, display them line by line and return
         if (messages.length > 0) {
-
             errorMessages.innerHTML = messages.join("<br>");  // Display all messages, separated by line breaks
             errorMessages.style.display = "block"; // Show the error box
-            
-
-        } else {
-            errorMessages.style.display = "none"; // Hide the error box if no messages
+        } 
+        else {
+            errorMessages.style.display = "none"; // Hide the error box if no messages and display chart
        
 
 
