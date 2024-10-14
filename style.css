@@ -13,11 +13,6 @@
     table-layout: auto; /* Auto layout for responsiveness */
 }
 
-/* style for table and ensuring table is scrollable */
-#tableContainer {
-    overflow: auto;    /* Enables scrolling */
-    border: 1px solid #ccc; /* Adds a border for visibility */
-}
 
  /* Style for error message */
  #errorMessages {
@@ -28,8 +23,6 @@
     background-color: #f8d7da; /* Light red background */
     color: #721c24; /* Dark red text color */
 }
-
-
 
 
 /* alternating colors for even and odd */
@@ -47,7 +40,7 @@
     font-weight: bold; 
     background-color: #231b92; 
 
-    position: sticky;
+    position: sticky; /* sticks the multiplier to the page even when scrolling */
 
     left: 0; /* Position the multiplicands at the left */
     z-index: 9; /* Ensures left header stays above other content */
