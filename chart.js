@@ -1,3 +1,9 @@
+/* 
+Created by: Nika Ashtarzadeh
+Email: Nika_Ashtarzadeh@student.uml.edu
+Date: 10/12/24
+*/
+
 
 //  Ensures that the JS function runs after the HTML document has been fully loaded first
 document.addEventListener("DOMContentLoaded", function() {

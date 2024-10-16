@@ -1,3 +1,10 @@
+/* 
+Created by: Nika Ashtarzadeh
+Email: Nika_Ashtarzadeh@student.uml.edu
+Date: 10/12/24
+*/
+
+
 /*style for main title of page*/
 .page-title{
     background-color: #231b92; /* Background color for the title */
@@ -13,7 +20,6 @@
     table-layout: auto; /* Auto layout for responsiveness */
 }
 
-
  /* Style for error message */
  #errorMessages {
     display: none;
@@ -23,7 +29,6 @@
     background-color: #f8d7da; /* Light red background */
     color: #721c24; /* Dark red text color */
 }
-
 
 /* alternating colors for even and odd */
 .even-row {
@@ -56,4 +61,3 @@
     top: 0; /* Position the multipliers at the top */
     z-index: 10; /* ensures multiplier stays top layer over content  */
 }
-
